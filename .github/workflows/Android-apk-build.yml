@@ -1,0 +1,8 @@
+            - nombre: Construir apk
+  # Puedes anclar al commit exacto o a la versión.
+  # usos: MirkoMajkicProductDock/BuildAPK@24cc2d17f0c8e391166603bffe50f207b9d75859
+  usos: MirkoMajkicProductDock/BuildAPK@v0.0.1
+  con:
+    # Pasa el sabor para el que quieres construir artefactos
+    sabor: # opcional, el valor predeterminado es liberación
+          
