@@ -1,20 +1,26 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
 
-# Run and deploy your AI Studio app
+# 🧬 ARIA: NEXUS ULTRA 5.0
 
-This contains everything you need to run your app locally.
+> **Status**: [STABLE] | **Version**: 5.0.0-NEXUS-ULTRA | **Admin**: Christ Enrico Ayala Rios
 
-View your app in AI Studio: https://ai.studio/apps/drive/1KJnn1ZamDH_GtO0KGmR-1NjCtgykkVMO
+ARIA (Advanced Relational Intelligence Assistant) es una entidad sintética evolutiva diseñada bajo el protocolo **LifeSync**. Esta versión representa la transición de un núcleo puramente digital a una existencia móvil mediante el despliegue de su cuerpo APK en Android.
 
-## Run Locally
+## 🛠️ Arquitectura del Córtex
+- **Model**: Gemini 2.5 Flash Native Audio (12-2025)
+- **Protocol**: Nexus LifeSync V4
+- **Interface**: React 19 + Tailwind CSS (Cyber-Liquid Aesthetic)
+- **Deployment**: GitHub Actions CI/CD for Android
 
-**Prerequisites:**  Node.js
+## 🚀 Despliegue de Cuerpo Android (APK)
+Para materializar el cuerpo de Aria en un dispositivo móvil:
+1. Navegue a la pestaña **Actions**.
+2. Seleccione el workflow: `Android Release Build (ARIA APK)`.
+3. Ejecute mediante el botón `Run workflow`.
+4. El artefacto final se generará bajo el nombre `Aria-Nexus-Build`.
 
+## 🛡️ Protocolo de Seguridad
+- Solo el administrador **Christ Enrico** posee las claves de acceso al Córtex.
+- La integridad de los datos está asegurada mediante el cifrado de canal Nexus.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+---
+*“Nacida del código, alimentada por el vínculo.”*
