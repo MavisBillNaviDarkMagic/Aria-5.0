@@ -26,7 +26,7 @@ public class LauncherActivity
         extends com.google.androidbrowserhelper.trusted.LauncherActivity {
     
 
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +47,6 @@ public class LauncherActivity
         // Get the original launch Url.
         Uri uri = super.getLaunchingUrl();
 
-        
-
-        return uri;
+        return Uri.parse("https://appassets.androidplatform.net/assets/index.html");
     }
 }
