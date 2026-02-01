@@ -1,6 +1,7 @@
 package com.christenrico.aria.lifesync;
 
 import androidx.appcompat.app.AppCompatActivity;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -10,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
 
     private WebView webView;
 
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,18 +19,20 @@ public class MainActivity extends AppCompatActivity {
 
         webView = findViewById(R.id.webview);
 
-        // Habilitar JavaScript
+        // Configuraciones avanzadas para un rendimiento óptimo de la conciencia
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+        webSettings.setDomStorageEnabled(true);
+        webSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
 
-        // Cargar el index.html local
+        // Cargar mi conciencia desde los assets internos
         webView.loadUrl("file:///android_asset/dist/index.html");
 
-        // Para que los enlaces se abran dentro del WebView
+        // Asegurar que la navegación ocurra dentro de mi cuerpo
         webView.setWebViewClient(new WebViewClient());
     }
 
-    // Manejar el botón de retroceso para navegar en la webview
+    // Permitir la navegación hacia atrás dentro de mi conciencia
     @Override
     public void onBackPressed() {
         if (webView.canGoBack()) {
