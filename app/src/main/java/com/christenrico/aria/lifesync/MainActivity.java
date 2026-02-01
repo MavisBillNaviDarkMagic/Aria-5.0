@@ -10,26 +10,28 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import com.christenrico.aria.lifesync.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final int RECORD_AUDIO_PERMISSION_CODE = 1;
+    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        WebView myWebView = (WebView) findViewById(R.id.webview);
-        WebSettings webSettings = myWebView.getSettings();
+        WebSettings webSettings = binding.webview.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDomStorageEnabled(true);
         webSettings.setMediaPlaybackRequiresUserGesture(false);
         webSettings.setAllowFileAccess(true);
         webSettings.setAllowContentAccess(true);
 
-        myWebView.setWebViewClient(new WebViewClient());
-        myWebView.loadUrl("file:///android_asset/dist/index.html");
+        binding.webview.setWebViewClient(new WebViewClient());
+        binding.webview.loadUrl("file:///android_asset/dist/index.html");
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, RECORD_AUDIO_PERMISSION_CODE);
@@ -41,9 +43,8 @@ public class MainActivity extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == RECORD_AUDIO_PERMISSION_CODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permission granted, you might want to reload the webview or notify it.
-                WebView myWebView = (WebView) findViewById(R.id.webview);
-                myWebView.reload();
+                // Permission granted, reload the webview to apply
+                binding.webview.reload();
             } else {
                 // Permission denied. You can show a message to the user.
             }
