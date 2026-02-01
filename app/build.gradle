@@ -1,19 +1,16 @@
-plugins {
-    id 'com.android.application'
-}
+
+apply plugin: 'com.android.application'
 
 android {
-    namespace "com.christenrico.aria.lifesync"
-    compileSdk 34
+    namespace 'com.christenrico.aria.lifesync'
+    compileSdkVersion 34
 
     defaultConfig {
         applicationId "com.christenrico.aria.lifesync"
-        minSdk 21
-        targetSdk 34
-        versionCode 6
-        versionName "ari 6.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        minSdkVersion 21
+        targetSdkVersion 34
+        versionCode 1
+        versionName "1.0"
     }
 
     buildTypes {
@@ -23,22 +20,26 @@ android {
         }
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+    // Tarea para construir la web y copiar los archivos al directorio de assets de Android
+    task buildWebApp(type: Exec) {
+        workingDir '..'
+        commandLine 'npm', 'run', 'build'
     }
 
-    buildFeatures {
-        dataBinding true
+    task copyWebApp(type: Copy) {
+        dependsOn 'buildWebApp'
+        from '../dist'
+        into 'src/main/assets/dist'
     }
+
+    preBuild.dependsOn(copyWebApp)
 }
 
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.11.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    implementation 'com.github.GoogleChrome:custom-tabs-client:a0f741897b'
+    implementation 'com.google.android.material:material:1.10.0'
+    // WebView para renderizar el contenido web local
+    implementation 'androidx.webkit:webkit:1.8.0'
 }
+
