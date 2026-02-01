@@ -1,0 +1,4 @@
+#Sun Feb 01 00:39:31 UTC 2026
+base.0=/home/user/Aria-5.0/app/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
